@@ -1,11 +1,11 @@
-Species	Scientific Name	Abundance
-European brown bear	Ursus arctos	120
-Grey wolf	Canis lupus	60
-Carpathian wild boar	Sus scrofa	80
-Eurasian lynx	Lynx lynx	45
-Common raven	Corvus corax	110
-Carpathian chamois	Rupicapra rupicapra	65
-European badger	Meles meles	100
-Common pheasant	Phasianus colchicus	150
-Western marsh harrier	Circus aeruginosus	70
-Brown trout	Salmo trutta	200
+Common Name,Scientific Name,Abundance
+"European brown bear	",Ursus arctos,120
+"Grey wolf	",Canis lupus,60
+"Carpathian wild boar	",Sus scrofa,80
+"Eurasian lynx	",Lynx lynx,45
+"Common raven	",Corvus corax,110
+"Carpathian chamois	",Rupicapra rupicapra,65
+"European badger	",Meles meles,100
+"Common pheasant	",Phasianus colchicus,150
+"Western marsh harrier	",Circus aeruginosus,70
+"Brown trout	",Salmo trutta,200
