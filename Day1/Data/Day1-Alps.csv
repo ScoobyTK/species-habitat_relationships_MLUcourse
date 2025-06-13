@@ -1,8 +1,9 @@
 Common Name,Scientific Name,Abundance
 "Alpine ibex	",Capra ibex,120
 "Red fox	",Vulpes vulpes,80
-"European brown bear	",Ursus arctos,50
+"European brown bear	",Ursus arctos,0
 "Golden eagle	",Aquila chrysaetos,30
+"Golden eagle	",Aquila chryseatos,3
 "Alpine chough	",Pyrrhocorax graculus,150
 "Common wall lizard	",Podarcis muralis,200
 "Mountain hare	",Lepus timidus,90
