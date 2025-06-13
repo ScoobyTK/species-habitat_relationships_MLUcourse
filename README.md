@@ -6,7 +6,7 @@ This repository contains the course material for the students (BSc &amp; MSc) of
 This course aims to introduce participants to the theory and practice of modelling species-habitat relationships, with an emphasis on spatial and ecological scales relevant to conservation planning. We’ll explore how species interact with their environments, how these relationships vary across scales, and how such knowledge can be applied to real-world conservation problems.
 
 ## Course outline 
-Day 1 – Counting living things
-Day 2 – A day in the life of a field ecologist
-Day 3 – Solving ecological puzzles
+Day 1 – Counting living things  
+Day 2 – A day in the life of a field ecologist  
+Day 3 – Solving ecological puzzles  
 Day 4 – Cross-scale dynamics in Ecology
