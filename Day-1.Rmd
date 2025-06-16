@@ -1,0 +1,65 @@
+---
+title: "rMarkdown-Day1"
+author: "Bruno"
+date: '`r Sys.Date()`'
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(vegan)
+library(dplyr)
+Alps <- data.frame(
+  Common.Name = c("Alpine ibex", "Red fox", "European brown bear", "Golden eagle", "Alpine chough", "Common wall lizard", "Mountain hare", "European rore dear", "Swiss alpine butterfly", "European brown trout"),
+  Scientific.Name = c("Capra ibex", "Vulpes vulpes", "Ursus arctos", "Aquila chryseatos", "Pyrrhocorax graculus", "Podarcis muralis", "Lepus timidus", "Capreolus capreolus", "Erebia aethiops", "Salmo trutta"),
+  Abundance = c(120, 80, 10, 33, 150, 200, 90, 160, 250, 300)
+)
+
+Carpathians <- data.frame(
+  Common.Name = c("Carpathian chamois", "European brown bear","Grey wolf", "Carpathian wild boar", "Common raven", "Eurasian lynx", "European badger", "Common pheasant", "Western marsh harrier", "Brown trout"),
+  Scientific.Name = c("Rupicapra rupicapra", "Ursus arctos", "Canis lupus", "Sus scrofa", "Corvus corax", "Lynx lynx", "Meles meles", "Phasianus colchicus", "Circus aeruginosus", "Salmo trutta"),
+  Abundance = c(65, 120, 60, 80, 110, 10, 100, 150, 70, 200)
+)
+
+alpha_Alps <- diversity(Alps$Abundance, index = "shannon")
+alpha_Carpathians <- diversity(Carpathians$Abundance, index = "shannon")
+
+alpha_Alps
+alpha_Carpathians
+
+gamma_Alps <- length(unique(Alps$Scientific.Name))
+gamma_Carpathians <- length(unique(Carpathians$Scientific.Name))
+
+gamma_Alps
+gamma_Carpathians
+
+all_species <- unique(c(Alps$Scientific.Name, Carpathians$Scientific.Name))
+
+combined <- data.frame(
+  row.names = all_species,
+  Alps = tapply(Alps$Abundance, Alps$Scientific.Name, sum)[all_species],
+  Carpathians =tapply(Carpathians$Abundance, Carpathians$Scientific.Name, sum)[all_species]
+)
+combined[is.na(combined)] <- 0
+
+beta_bray <- vegdist(t(combined), method = "bray")
+as.numeric(beta_bray)
+```
+
+```{r}
+alpha_values <- c(alpha_Alps, alpha_Carpathians)
+gamma_values <- c(gamma_Alps, gamma_Carpathians)
+beta_values <- as.numeric(beta_bray[1])
+
+barplot(
+  height = c(alpha_values, beta_values, gamma_values),
+  names.arg = c("Alpha (Alps)", "Alpha (Carpathians)", "Beta", "Gamma (Alps)", "Gamma (Carpathians)"),
+  main = "Biodiversität in Alpen vs. Karpaten",
+  ylab = "Diversitätsmaß",
+  las = 2
+)
+
+
+```{r}
